@@ -14,20 +14,22 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
+    string = string.length;
 
-
+return string;
     // YOUR CODE ABOVE HERE //
 }
+
+
 
 /**
  * Given an input String, return a new String forced to lowercase.
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
+var lower = string.toLowerCase;
 
-
-
+return lower;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -36,9 +38,9 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
+var upper = string.toUpperCase;
 
-
-
+return upper;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -57,9 +59,9 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
+var dash = string.toDashCase;
 
-
-
+return dash;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -77,7 +79,11 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+if( string.length(0) === char){
+    return true;
+} else{
+    return false;
+}
     
 
     // YOUR CODE ABOVE HERE //
@@ -97,7 +103,10 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+    if( string.length - 1 === char){
+        return true;
+    } else{
+        return false;
 
 
     // YOUR CODE ABOVE HERE //
