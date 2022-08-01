@@ -79,7 +79,7 @@ return dash;
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-if( string.length(0) === char){
+if( string.charAt(0) === char){
     return true;
 } else{
     return false;
@@ -103,11 +103,11 @@ if( string.length(0) === char){
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    if( string.length - 1 === char){
+    if( string.charAt(string.length -1) === char){
         return true;
     } else{
         return false;
-
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -120,8 +120,8 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
-
+var stringthree = stringOne + stringTwo;
+return stringthree
     // YOUR CODE ABOVE HERE //
 }
 
@@ -138,8 +138,8 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
-
+args = args.join();
+return args;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -154,7 +154,11 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+if (stringOne.length > stringTwo){
+    return stringOne;
+}else{
+    return stringTwo;
+}
 
 
     // YOUR CODE ABOVE HERE //
@@ -169,8 +173,8 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+var test = stringOne.localecompare(stringTwo);
+return test;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -185,7 +189,8 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    var test = stringTwo.localecompare(stringOne);
+    return test;
 
 
 
