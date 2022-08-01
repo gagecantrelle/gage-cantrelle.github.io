@@ -21,9 +21,10 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
+    var Sinput = input.split;
+    var Rinput = Sinput.reverseString();
+    var Ninput = Rinput.join("");
+    return Ninput;
     
     // YOUR CODE GOES ABOVE HERE //
 }
