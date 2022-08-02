@@ -27,7 +27,7 @@ return string;
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-var lower = string.toLowerCase;
+var lower = string.toLowerCase();
 
 return lower;
     // YOUR CODE ABOVE HERE //
@@ -38,7 +38,7 @@ return lower;
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-var upper = string.toUpperCase;
+var upper = string.toUpperCase();
 
 return upper;
     // YOUR CODE ABOVE HERE //
@@ -59,8 +59,8 @@ return upper;
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-var dash = string.toDashCase;
-
+    var dash = string.replace(" ", "-");
+dash = dash.toLowerCase(); 
 return dash;
     // YOUR CODE ABOVE HERE //
 }
