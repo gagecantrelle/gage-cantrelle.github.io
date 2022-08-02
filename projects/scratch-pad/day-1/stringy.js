@@ -80,7 +80,7 @@ return dash;
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 if( string.charAt(0) === char){
-    return true;
+    return fasle;
 } else{
     return false;
 }
