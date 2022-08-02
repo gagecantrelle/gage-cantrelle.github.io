@@ -21,8 +21,8 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    var Sinput = input.split;
-    var Rinput = Sinput.reverseString();
+    var Sinput = input.split("");
+    var Rinput = Sinput.reverse("");
     var Ninput = Rinput.join("");
     return Ninput;
     

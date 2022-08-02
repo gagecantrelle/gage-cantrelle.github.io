@@ -59,7 +59,7 @@ return upper;
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-    var dash = string.replace(" ", "-");
+    var dash = string.replace(/[" "]/g , "-");
 dash = dash.toLowerCase(); 
 return dash;
     // YOUR CODE ABOVE HERE //
