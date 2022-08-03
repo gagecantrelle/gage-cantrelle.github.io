@@ -14,7 +14,11 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+ if( typeof value === object){
+    return true;
+ }else{
+    return false;
+ }   
     
     
     
