@@ -14,7 +14,7 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
- if( typeof value === object){
+ if( Array.isArray(value) === true){
     return true;
  }else{
     return false;
@@ -35,7 +35,29 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+    if( typeof value === "object"){
+       if(Array.isArray(value) === true){
+        return false;
+       }else if(value === null){
+        return false;
+       }else if(value === Date){
+        return false;
+       }else if(value === String){
+        return false;
+       }else if(value === Number){
+        return false;
+       }else if(value === Boolean){
+        return false;
+       }else if(value === undefined){
+       return false;
+       }else{
+        return true;
+       }
+        
+     }else{
+        return false;
+     }   
+         
     
     
     

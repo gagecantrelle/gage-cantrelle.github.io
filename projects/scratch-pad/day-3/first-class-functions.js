@@ -98,7 +98,9 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
+    return function modify(collect){
+        collection
+    }
     
     
     

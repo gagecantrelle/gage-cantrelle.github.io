@@ -23,7 +23,18 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
+    var total = [];
+    if(start > end){
+for(var i = start; i >= end; i--){
+total.push(i);
+}
+return total;
+    }else if(start < end){
+        for(var i = start; i <= end; i++){
+            total.push(i);
+            }
+            return total;
+    }
     
     
     
