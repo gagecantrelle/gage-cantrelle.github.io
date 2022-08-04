@@ -35,11 +35,13 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-var obj = [];
+var object = {};
 
-obj.id = id;
-obj.nameFirst = nameFirst;
-obj.nameLast = nameLast;
+object.id = id;
+object.nameFirst = nameFirst;
+object.nameLast = nameLast;
+console.log(object);
+return object;
 } 
 
 
@@ -59,6 +61,11 @@ function makeContactList() {
         },
         findContact: function(fullName){
             for(var i = 0; i <= 10; i++ ){
+             if(contact[i] === fullName){
+
+             }else{
+
+             }
                 
             }
         }
