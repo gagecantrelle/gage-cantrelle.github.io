@@ -141,10 +141,11 @@ return stringthree
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-   var args1 = stringOne + stringTwo;
-   var args2 = stringOne + stringTwo;
-   var args3 = args1 + args2;
-return args3;
+    var args = Array.from(arguments)
+
+
+return args.join("");
+ 
     // YOUR CODE ABOVE HERE //
 }
 
@@ -180,8 +181,13 @@ function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 console.log(stringOne);
 console.log(stringTwo);
-    var test = stringOne.localeCompare(stringTwo);
-return test;
+    if(stringOne > stringTwo){
+        return -1;
+    }else if(stringOne < stringTwo){
+        return 1;
+    }else{
+        return 0;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -196,8 +202,14 @@ return test;
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var test = stringTwo.localecompare(stringOne);
-    return test;
+    if(stringOne > stringTwo){
+        return 1;
+    }else if(stringOne < stringTwo){
+        return -1;
+    }else{
+        return 0;
+    }
+    
 
     // YOUR CODE ABOVE HERE //
 }

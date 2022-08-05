@@ -72,7 +72,13 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+    if( typeof value === "object"){
+        return true;
+    }else if(Array.isArray(value) === true){
+        return true;
+    }else{
+        return false;
+    }
     
     
     
@@ -100,7 +106,15 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+   var vtest;
+    if(value = undefined){
+vtest = "array";
+   }else{
+    vtest = typeof value;
+   }
+
+
+    console.log(vtest); 
     
     
     
