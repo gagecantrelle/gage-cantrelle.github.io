@@ -27,8 +27,8 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  for (var key in array){
-    console.log(array.reverse(key)[key]);
+  for (var i = array.length-1; i >= 0; i--) {   
+    console.log(array[i]);   
   }
   
   
