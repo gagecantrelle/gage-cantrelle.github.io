@@ -79,8 +79,10 @@ return dash;
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-if( string.charAt(0) === char){
-    return fasle;
+var Lstring = string.toLowerCase();
+var Lchar = char.toLowerCase();
+    if( Lstring.charAt(0) === Lchar){
+    return true;
 } else{
     return false;
 }
@@ -103,7 +105,9 @@ if( string.charAt(0) === char){
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    if( string.charAt(string.length -1) === char){
+    var Lstring = string.toLowerCase();
+    var Lchar = char.toLowerCase();
+    if( Lstring.charAt(Lstring.length -1) === Lchar){
         return true;
     } else{
         return false;
@@ -137,9 +141,10 @@ return stringthree
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
-args = args.join();
-return args;
+   var args1 = stringOne + stringTwo;
+   var args2 = stringOne + stringTwo;
+   var args3 = args1 + args2;
+return args3;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -154,7 +159,7 @@ return args;
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-if (stringOne.length > stringTwo){
+if (stringOne.length > stringTwo.length){
     return stringOne;
 }else{
     return stringTwo;
@@ -173,7 +178,9 @@ if (stringOne.length > stringTwo){
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-var test = stringOne.localecompare(stringTwo);
+console.log(stringOne);
+console.log(stringTwo);
+    var test = stringOne.localeCompare(stringTwo);
 return test;
 
     // YOUR CODE ABOVE HERE //
@@ -191,8 +198,6 @@ function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var test = stringTwo.localecompare(stringOne);
     return test;
-
-
 
     // YOUR CODE ABOVE HERE //
 }

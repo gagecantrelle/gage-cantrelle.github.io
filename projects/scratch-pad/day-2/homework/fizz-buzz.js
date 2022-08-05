@@ -12,10 +12,10 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
- for (var i = 0; i <= 100; i++){
-if(i === 3){
+ for (var i = 0; i < 100; i++){
+if(i === i % 3){
     console.log("Fizz");
-}else if (i === 5){
+}else if (i === i % 5){
     console.log("Buzz");
 }else if (i === 3 * 5){
     console.log("FizzBuzz");
