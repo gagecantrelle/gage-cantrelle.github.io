@@ -82,7 +82,7 @@ like: ["apple", "car"],
 /**
 * infint numbers
 * 
-* 0: Infinty and -infinty are specal numbers that don't end
+* 0: Infinty and -infinty are specal numbers that don't end. They apper when you crated in infite loop 
 * 
 * 1: you would see Infinty when you get an error say that the code is infint
 * 
