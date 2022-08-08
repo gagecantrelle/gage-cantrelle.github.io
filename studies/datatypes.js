@@ -93,3 +93,30 @@ var inftest1 = typeof Infinity;
 var inftest2 = typeof -Infinity;
 console.log(inftest1); //print number
 console.log(inftest2); //print number
+
+/**
+ * Complex and primitive/simple datatypes
+ * 
+ * 0: Primite/Simple datatypes are value that hold simple value. They can be copy easly, because they only hold on value.
+ * 
+ * 1: Complex datatypes are values the hold mutiple different values. They can not be copyed, because they can hold mutiple value or mutiple lines of code. making it impasble 
+ * to copy, so we would would have to reference the datatype. this wont change the orginal datatype
+ */
+
+//0
+var numb = 1;
+var stri = 'hello';
+var bool = true;
+var not = NaN;
+var Un = Undefind;
+var nul = Null;
+
+//1
+var arra = [1, 2, 3];
+var Objs = {
+    name: "i",
+    age: 111,
+}
+function op(u){
+    return u;
+}
