@@ -15,7 +15,7 @@ var test1;
 console.log(test1); // prints undefind
 
 //Step 2-1. assign a value
-//When you assign a value to a variable that has a value of undefind
+//When you assign a value to a variable is will have one of nine value. string, number, boolean, object, array, function, NaN, null, undefind
 var test2 = 'hello';
 console.log(test2); // prints hello
 
