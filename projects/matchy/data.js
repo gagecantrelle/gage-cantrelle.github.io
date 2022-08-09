@@ -21,11 +21,10 @@ console.log(animal);
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var noises = [];
-noises['sound'] = 'bark';
-noises.push(function array(noises){
-  Array.prototype.unshift(noises2 = 'achoo');
-});
-noises['noises3'] = 'awhooo';
+noises[0] = 'bark';
+noises.push('achoo');
+noises.unshift('awhooo');
+noises[noises.length] = 'wolf';
 console.log(noises.length);
 console.log(noises.length -1);
 console.log(noises);
@@ -34,15 +33,23 @@ console.log(noises);
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+noises.push('grrr');
+noises.forEach(function(elm){
+  animal.noises.push(elm);
+})
+console.log(animal);
 
 
 /* *******************************************************************
  * Step 4 - Review
  *
  * 1. What are the different ways you can access properties on objects?
+ * 
+ *  .length and .length -1 and 
  *
  * 2. What are the different ways of accessing elements on arrays?
+ * 
+ * forEach and forin
  *
  * *******************************************************************
  */
@@ -59,15 +66,35 @@ console.log(noises);
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
-
+var animals = [];
+animals.push(animal);
+console.log(animals);
+var duck = { species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] };
+animals.push(duck);
+console.log(animals);
+var cat = { species: 'cat', name: 'Joy', noises: ['meow', 'hiss', 'sneeze', 'arr'] };
+var cow = { species: 'cow', name: 'Jojo', noises: ['moo', 'gree', 'moooooo', 'hi'] };
+animals.push(cat);
+animals.push(cow);
+console.log(animals);
+console.log(animals.length);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// array because arrays hold list
+
+var friends = [];
+function getRandom(arr){
+  for(var i = 0; i <= arr.length; i++);
+  var istrue = Math.random() * 2;
+  if(istrue === 1){
+    friends.push(arr[i]);
+  }
 
 
+}
+console.log(friends);
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"
