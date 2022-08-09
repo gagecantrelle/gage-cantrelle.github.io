@@ -49,11 +49,19 @@ function test4(){
 }
 console.log(test4()); //print 6
 
-// The function scope can edit other varaible outside the function but, only when it is give a a golbal vaaraible. it will only edit the given
-//varaible and returning the given varaible
+// The function scope can't edit other varaible outside the function. we can creat a varaible in side the function that will hold 
+// a edited value of an gobal varaible. we then can return the varaible created inside the function as a value. Then set the gobal varaible 
+// that was given to the function as the return value
 
 var a = 1;
-function test5(in){
-    in = in + 1;
-    return in;
+function test5(input){
+  var output = input + 1;
+    return output;
 }
+console.log(a); // print 1
+a = test5(a);
+console.log(a); // print 2
+
+//function Closures
+//Functions form closure around the code the hold ( {} ). when a function return a value and is stored some where the code in the
+//function will sill exist
