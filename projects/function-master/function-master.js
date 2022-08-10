@@ -33,7 +33,7 @@ function valuesToString(object) {
        if(typeof object[key] === 'string'){
         arr.push(object[key]);
        } 
-        console.log(arr);
+        
     }
     
     return arr.join(" ");
@@ -58,24 +58,31 @@ function arrayOrObject(collection) {
 
 function capitalizeWord(string) {
     
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
+                                                                            
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
-}
+
+  return string.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  
+}                                                                                          // ??? copy from site
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+var obj = object.name;
+console.log(obj);    
+console.log("Welcome " + obj.charAt(0).toUpperCase() + obj.slice(1) + "!");
+    return "Welcome " + obj.charAt(0).toUpperCase() + obj.slice(1) + "!";
 }
-
+                                                                                           //???
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -89,7 +96,11 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+if(object === object.noises){
+   return object.noises.join(" "); 
+}else{
+    return 'there are no noises';
+}                                                                                     //???
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -97,7 +108,14 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+var str = string.slice();
+for(var i = 0; i <= str.length; i++){
+    if(str[i] === word){
+        return true;
+    }else{
+        return false;
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
