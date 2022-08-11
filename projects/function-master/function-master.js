@@ -96,11 +96,14 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-if(object === object.noises){
-   return object.noises.join(" "); 
-}else{
-    return 'there are no noises';
-}                                                                                     //???
+    for(var key in object){
+        if(key === ["bark", "woof", "squeak","growl"]){
+            var str = key.join(" ");
+            return str;
+        }else{
+            return 'there are no noises';
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -110,6 +113,8 @@ if(object === object.noises){
 function hasWord(string, word) {
 var str = string.slice();
 for(var i = 0; i <= str.length; i++){
+    console.log(str[i]);
+console.log(word);
     if(str[i] === word){
         return true;
     }else{
