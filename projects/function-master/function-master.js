@@ -96,13 +96,14 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    for(var key in object){
-        if(key === ["bark", "woof", "squeak","growl"]){
-            var str = key.join(" ");
-            return str;
-        }else{
-            return 'there are no noises';
-        }
+    if(object.noises){
+       if(object.noises.length !== 0){
+        return object.noises.join(" ");
+       }else{
+        return "there are no noises";
+       } 
+    }else{
+     return "there are no noises";
     }
 }
 
