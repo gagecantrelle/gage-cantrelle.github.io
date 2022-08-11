@@ -77,10 +77,10 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-var obj = object.name;
-console.log(obj);    
-console.log("Welcome " + obj.charAt(0).toUpperCase() + obj.slice(1) + "!");
-    return "Welcome " + obj.charAt(0).toUpperCase() + obj.slice(1) + "!";
+var str = object.name;
+console.log(str);    
+console.log("Welcome " + str.charAt(0).toUpperCase() + str.slice(1) + "!");
+    return "Welcome " + str.charAt(0).toUpperCase() + str.slice(1) + "!";
 }
                                                                                            //???
 //////////////////////////////////////////////////////////////////////
@@ -88,7 +88,11 @@ console.log("Welcome " + obj.charAt(0).toUpperCase() + obj.slice(1) + "!");
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    var str1 = object.name;
+    var str2 = object.species;
+    console.log(str1);    
+    console.log("Welcome " + str1.charAt(0).toUpperCase() + str1.slice(1) + "!");
+        return str1.charAt(0).toUpperCase() + str1.slice(1) + " is a " + str2.charAt(0).toUpperCase() + str2.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -112,16 +116,13 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-var str = string.slice();
-for(var i = 0; i <= str.length; i++){
-    console.log(str[i]);
-console.log(word);
-    if(str[i] === word){
+    if(string.includes(word)){
         return true;
-    }else{
+        }else{
         return false;
-    }
-}
+        }
+
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -129,7 +130,8 @@ console.log(word);
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object.friends.push(name);
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -137,7 +139,13 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    console.log(object.friends);
+    if(object.friends === object.friends.includes(name)){
+        return true;
+    } else{
+        return false;
+    }
+    
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -169,7 +177,9 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    return array.sort().filter(function(item, pos, ary) {
+        return !pos || item != ary[pos - 1];                           //???
+    });
 }
 
 //////////////////////////////////////////////////////////////////////

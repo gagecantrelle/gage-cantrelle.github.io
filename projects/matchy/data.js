@@ -86,15 +86,14 @@ console.log(animals.length);
 
 var friends = [];
 function getRandom(arr){
-  for(var i = 0; i <= arr.length; i++);
-  var istrue = Math.random() * 2;
-  if(istrue === 1){
-    friends.push(arr[i]);
-  }
-
+  return Math.floor(Math.random() * arr.length )
+   
 
 }
+var a = getRandom(animals);
+friends.push();
 console.log(friends);
+animals[0].friends = friends;
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"
