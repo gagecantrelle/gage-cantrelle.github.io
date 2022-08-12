@@ -35,28 +35,12 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    if( typeof value === "object"){
-       if(Array.isArray(value) === true){
+   
+    if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){
+      return true;
+    }else{
         return false;
-       }else if(value === null){
-        return false;
-       }else if(value === Date){
-        return false;
-       }else if(value === String){
-        return false;
-       }else if(value === Number){
-        return false;
-       }else if(value === Boolean){
-        return false;
-       }else if(value === undefined){
-       return false;
-       }else{
-        return true;
-       }
-        
-     }else{
-        return false;
-     }   
+    }
          
     
     
@@ -72,7 +56,7 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    if( typeof value === "object"){
+    if( typeof value === "object" && value !== null && value instanceof Date === false || Array.isArray(value)){
         return true;
     }else if(Array.isArray(value) === true){
         return true;
@@ -107,16 +91,27 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
    var vtest;
-    if(value = undefined){
-vtest = "array";
-   }else{
-    vtest = typeof value;
+    if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){
+      vtest = "object";
+   }else if(typeof value !== 'object' && value !== null && Array.isArray(value) === true && value instanceof Date === false){
+      vtest = "array";
+   }else if(typeof value !== 'object' && value === null && Array.isArray(value) === false && value instanceof Date === false){
+      vtest = "null";
+   }else if(typeof value !== 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === true){
+      vtest = "date";
+   }else if(typeof value === 'function'){
+      vtest = "function";
+   }else if(typeof value === 'undefined'){
+    vtest = "undefined";
+   }else if(typeof value === 'string'){
+    vtest = "string";
+   }else if(typeof value === 'number'){
+    vtest = "number";
+   }else if(typeof value === 'boolean'){
+    vtest = "boolean";
    }
 
-
-    console.log(vtest); 
-    
-    
+   console.log(vtest); 
     
     // YOUR CODE ABOVE HERE //
 }

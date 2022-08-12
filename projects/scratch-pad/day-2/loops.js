@@ -98,11 +98,11 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
- 
+ var num = 0;
   for(var key in object){
-    return key.length;  
+    num++;  
   }
-    
+    return num;
   
   
   
@@ -115,12 +115,14 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  for(var key in object){
-    console.log(object[key].lenght -1);
-   }
-  
-  
-  
+ console.log(object);
+  var arr = [];
+arr = Object.values(object);
+for(var i = arr.length - 1; i >= 0; i--){
+  console.log(arr[i]);
+}  
+
+
   // YOUR CODE ABOVE HERE //
 }
 
