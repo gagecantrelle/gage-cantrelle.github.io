@@ -140,8 +140,12 @@ function addFriend (name, object) {
 
 function isFriend(name, object) {
     console.log(object.friends);
-    if(object.friends === object.friends.includes(name)){
-        return true;
+    if(object.friends){
+        if(object.friends.includes(name)){
+            return true;
+        } else{
+            return false;
+        }
     } else{
         return false;
     }
@@ -153,7 +157,18 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+var list = [];
+for(var i = 0; i <array.length; i++){
+    if(array[i].name === name){
+       for(var y = 0; y < array.length; y++){
+         if(array[y].name !== name && array.friends){
+           list.push(array[y].name);
+         }
+       }    
+    }
+}
+console.log(list);
+return list;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -161,15 +176,35 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+for(var i in object){
+    if(i = key){
+        if(object.i !== value){
+            object[i] = value;
+            return object;
+        }
+    }
+    
 }
+object.key = value;
+console.log(object);
+return object;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    for(var key in object){
+        for(i = 0; i <= array.length; i++){
+            if(key === array[i]){
+                delete object[key];
+            }
+        }
 
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
