@@ -159,12 +159,12 @@ function isFriend(name, object) {
 function nonFriends(name, array) {
 var list = [];
 for(var i = 0; i <array.length; i++){
-    if(array[i].name === name){
-       for(var y = 0; y < array.length; y++){
-         if(array[y].name !== name && array.friends){
-           list.push(array[y].name);
-         }
-       }    
+    if(name !== array[i].name && array[i].friends.indexOf(name) === -1){
+        list.push(array[i].name);
+      {
+      
+         
+       }  
     }
 }
 console.log(list);

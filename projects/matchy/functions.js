@@ -17,9 +17,11 @@ for(var i = 0; i <= arr.length; i++){
     if(arr[i] === str){
         console.log(arr.str);
         return arr.name;
+    }else{
+        return null;
     }
 }
-return null;
+
 }
 
 

@@ -110,8 +110,9 @@ function typeOf(value) {
    }else if(typeof value === 'boolean'){
     vtest = "boolean";
    }
-
-   console.log(vtest); 
+   console.log(vtest)
+   return vtest;
+  
     
     // YOUR CODE ABOVE HERE //
 }
