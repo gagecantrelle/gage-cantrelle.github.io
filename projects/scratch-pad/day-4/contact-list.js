@@ -64,7 +64,7 @@ function makeContactList() {
             for(var i = 0; i <= contacts.length; i++ ){
              console.log(contacts[i].nameFirst + " " + contacts[i].nameLast);
            if(contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
-             return fullName;
+             return contacts[i];
              }else{
               return undefined;
              }
@@ -76,8 +76,13 @@ function makeContactList() {
         },
         printAllContactNames: function(){
             var allName = "";
-        
-
+            var str = "";
+            for(var i = 0; i < contacts.length; i++){
+                str += '/' + contacts[i].nameFirst + " " + contacts[i].nameLast;
+                
+            }
+           allName = str.split('/').join("\n");
+           return allName.slice(1);
 
         }
     }
