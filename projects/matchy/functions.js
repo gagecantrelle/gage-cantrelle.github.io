@@ -13,23 +13,36 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function search(arr, str){
-for(var i = 0; i <= arr.length; i++){
-    if(arr[i] === str){
-        console.log(arr.str);
-        return arr.name;
-    }else{
-        return null;
+for(var i = 0; i < arr.length; i++){
+    if(arr[i].name === str){
+        var y = arr[i].name;
+        console.log(y);
+        return arr[i];
     }
-}
 
+    
+}
+return null;
 }
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+function replace(animals, name, replacement){
+    for(var i = 0; i < animals.length; i++){
+        if(animals[i].name === name){
+             console.log(animals[i]);
+           delete animals[i];
+           console.log(animals);
+            animals.push(replacement);
+            console.log(animals);
+        }
+    
+        
+}
 
-
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
