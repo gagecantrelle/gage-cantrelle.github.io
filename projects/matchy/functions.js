@@ -31,11 +31,8 @@ return null;
 //////////////////////////////////////////////////////////////////////
 function replace(animals, name, replacement){
     for(var i = 0; i < animals.length; i++){
-        if(animals[i].name === name){
-            animals[i].species.replace(replacement.species);
-            console.log(animals[i].species);
-            animals[i].name.replace(replacement.name);
-            console.log(animals[i].name);
+        if(name === animals[i].name){
+         animals[i] = replacement;
         }
     
         
@@ -48,15 +45,16 @@ function replace(animals, name, replacement){
 //////////////////////////////////////////////////////////////////////
 function remove(animals, name){
     for(var i = 0; i < animals.length; i++){
-        if(animals[i].name === name){
-             console.log(animals[i]);
-           delete animals[i];
-           console.log(animals);
+        if(name === animals[i].name){
+             
+           animals.splice(i, 1);
+           
            
         }
     
         
     }
+    
 }
 
 
@@ -64,13 +62,18 @@ function remove(animals, name){
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function add(animals, animal){
-   for(var i = 0; i < animals.length; i++){ 
-    if(animal[i].name.length > 0 && animal[i].species.length > 0 && animals.name !== animal.name){
-        animals.push(animal[i].name);
-        animals.push(animal[i].species);
-    console.log(animals)
+    
+    if(animal.name.length > 0 && animal.species.length > 0){
+        for(var i = 0; i < animals.length; i++){
+              if(animal.name !== animals[i].name){
+                    animals.push(animal)
+              }else{
+                return null;
+              }
+        }
+        
     }
-}
+
 }
 
 

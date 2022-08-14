@@ -32,3 +32,25 @@ test1.push(123); //add to last value (or test1.push())
 console.log(test1); // print [true, 123]
 test1.unshift('abc'); //add to frist value (or test1.unshift())
 console.log(test1); // print ['abc', true, 123]
+
+//access object
+//can hold mutiple named/key value
+var test2 = {
+name: 'bob',
+age: 33
+}
+//to access an object it simular to accessing a array but, you use a . insted of [] and use the object value name / key
+console.log(test2.name); // print bob
+  //to access the key name onloy you would need a for-in-loop
+  for(var key in test2){  // key will resperante the values name. you can think of an object key value like a variable
+    console.log(key); // print name then age
+  }
+
+//to add or remove a value from an you use . and .slice
+test2.likes = "game";  
+//since there no likes key in the object it will add it to the object
+console.log(test2.likes); //print game
+
+test2.slice(3,1); 
+//we selected the thrid key in the object (likes) then deleat all only one code (likes,   (3, 1) the 1 determin how many to start starting at 3(likes))
+console.log(test2.likes); //print error undefind   because the likes key is no longer in the test2 object
