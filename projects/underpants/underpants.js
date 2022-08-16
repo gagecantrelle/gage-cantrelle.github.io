@@ -103,23 +103,21 @@ _.first = function(arr, num){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 _.last = function(arr, num){
-    if(Array.isArray(arr)){
-        for(var i = arr.length -1; i >= 0; i--){
+    
+    
+       
          if(num === undefined){
              return arr[arr.length -1];
-         }else if(i === num){
-          return array;
+         }else if(Array.isArray(arr) === false){
+          return [];
          }else if(num < 0){
-             return array;
-         }else if(arr.length < num){
+             return [];
+         }else if(num > arr.length){
              return arr;
+         }else{
+             return num = arr.slice(-num);
          }
- 
-         array.push(arr[arr[i].length -1]);
-        }
-     }else{
-         return array;
-     }
+
 }
 
 /** _.indexOf
@@ -232,7 +230,13 @@ _.unique = function(arr){
 *   use _.each in your implementation
 */
 _.filter = function(arr, func){
-    
+    var array = [];
+    for(var i = 0; i < arr.length; i++){
+        if(func(arr[i], i, arr)){
+        array.push(arr[i]);
+        }
+    }
+    return array;
 }
 
 /** _.reject
@@ -247,7 +251,15 @@ _.filter = function(arr, func){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
+_.reject = function(arr, func){
+   var array = [];
+    for(var i = 0; i < arr.length; i++){
+     if(func(arr[i], i, arr) === false){
+        array.push(arr[i]);
+     }
+   }
+   return array;
+}
 
 /** _.partition
 * Arguments:
@@ -267,7 +279,22 @@ _.filter = function(arr, func){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+_.partition = function(arr, func){
+    var arrayT = [];
+    var arrayF = [];
+    var arrayA = arrayT + arrayF;
+    for(var i = 0; i < arr.length; i++){
+        if(func(arr[i], i, arr)){
+           arrayT.push(arr[i]);
+        }else{
+            arrayF.push(arr[i]);
+        }
+     
+    }
+      return arrayA;
 
+
+} 
 
 /** _.map
 * Arguments:
@@ -284,7 +311,19 @@ _.filter = function(arr, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+_.map = function(coll, func){
+    var array = [];
+    if(Array.isArray(coll)){
+    for( var i = 0; i < coll.length; i++){
+        array.push(func(coll[i], i, coll));
+    } 
+    }else{
+      for(var key in coll){
+        array.push(func(coll[key], key, coll));
+      }
+    }
+    return array;
+}
 
 /** _.pluck
 * Arguments:
