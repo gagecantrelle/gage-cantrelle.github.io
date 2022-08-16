@@ -93,11 +93,11 @@ function typeOf(value) {
    var vtest = "";
     if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){
       vtest = "object";
-   }else if(typeof value !== 'object' && value !== null && Array.isArray(value) === true && value instanceof Date === false){
+   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === true && value instanceof Date === false){
       vtest = "array";
-   }else if(typeof value !== 'object' && value === null && Array.isArray(value) === false && value instanceof Date === false){
+   }else if(typeof value === 'object' && value === null && Array.isArray(value) === false && value instanceof Date === false){
       vtest = "null";
-   }else if(typeof value !== 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === true){
+   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === true){
       vtest = "date";
    }else if(typeof value === 'function'){
       vtest = "function";
