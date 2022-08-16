@@ -90,7 +90,7 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-   var vtest;
+   var vtest = "";
     if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){
       vtest = "object";
    }else if(typeof value !== 'object' && value !== null && Array.isArray(value) === true && value instanceof Date === false){
