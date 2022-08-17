@@ -6,7 +6,11 @@
  * 1: complex variables can't be copy by value like simple/primite variables. It can only be refference by value
  */
 
-// Array acces
+//access
+// use [] when you don't know what the value your trying to access
+// use . when you know what the value your trying to access
+
+// Array access
 //Array can hold mutiple data-types/value
 var test1 = ['abc', true, 123];
         //     0      1    2  

@@ -336,7 +336,13 @@ _.map = function(coll, func){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 _.pluck = function(ArrObj, prop ){
-
+var array = [];
+for(var i = 0; i < ArrObj.length; i++){
+    for(var key in ArrObj[i]){
+        array.push(key);
+    }
+}
+return array;
 }
 
 /** _.every
@@ -359,7 +365,9 @@ _.pluck = function(ArrObj, prop ){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+_.every = function(coll, func){
 
+}
 
 /** _.some
 * Arguments:
@@ -381,7 +389,9 @@ _.pluck = function(ArrObj, prop ){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+_.some = function(coll, func){
 
+}
 
 /** _.reduce
 * Arguments:
@@ -401,7 +411,9 @@ _.pluck = function(ArrObj, prop ){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+_.reduce = function(arr, func, seed){
+    
+}
 
 /** _.extend
 * Arguments:
