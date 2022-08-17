@@ -55,6 +55,6 @@ test2.likes = "game";
 //since there no likes key in the object it will add it to the object
 console.log(test2.likes); //print game
 
-test2.slice(3,1); 
+test2.splice(3,1); 
 //we selected the thrid key in the object (likes) then deleat all only one code (likes,   (3, 1) the 1 determin how many to start starting at 3(likes))
 console.log(test2.likes); //print error undefind   because the likes key is no longer in the test2 object

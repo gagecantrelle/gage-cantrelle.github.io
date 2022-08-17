@@ -44,7 +44,29 @@ return value;
 * _.typeOf([1,2,3]) -> "array"
 */
 _.typeOf = function(value){
-
+    var vtest = "";
+    if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){
+      vtest = "object";
+   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === true && value instanceof Date === false){
+      vtest = "array";
+   }else if(typeof value === 'object' && value === null && Array.isArray(value) === false && value instanceof Date === false){
+      vtest = "null";
+   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === true){
+      vtest = "date";
+   }else if(typeof value === 'function'){
+      vtest = "function";
+   }else if(typeof value === 'undefined'){
+    vtest = "undefined";
+   }else if(typeof value === 'string'){
+    vtest = "string";
+   }else if(typeof value === 'number'){
+    vtest = "number";
+   }else if(typeof value === 'boolean'){
+    vtest = "boolean";
+   }
+   console.log(vtest)
+   return vtest;
+  
 }
 
 /** _.first
@@ -161,9 +183,12 @@ _.indexOf = function(arr, value){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 _.contains = function(arr, value){
-    for(var i = 0; i <= arr.length; i++){
-
+    for(var i = 0; i < arr.length; i++){
+     if(arr[i] === value){
+        return true;
+     }
     }
+    return false;
 }
 
 /** _.each
@@ -282,16 +307,17 @@ _.reject = function(arr, func){
 _.partition = function(arr, func){
     var arrayT = [];
     var arrayF = [];
-    var arrayA = arrayT + arrayF;
+    var arrayA = [];
     for(var i = 0; i < arr.length; i++){
         if(func(arr[i], i, arr)){
            arrayT.push(arr[i]);
-        }else{
+        }else if(!func(arr[i], i, arr)){
             arrayF.push(arr[i]);
         }
      
     }
-      return arrayA;
+     return arrayA.concat([arrayT], [arrayF]);
+      
 
 
 } 
@@ -335,14 +361,8 @@ _.map = function(coll, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-_.pluck = function(ArrObj, prop ){
-var array = [];
-for(var i = 0; i < ArrObj.length; i++){
-    for(var key in ArrObj[i]){
-        array.push(key);
-    }
-}
-return array;
+_.pluck = function(ArrObj, key ){
+return ArrObj.map(obj => obj[key]); //return array map (function parameter is obj return the obj value)
 }
 
 /** _.every
@@ -366,7 +386,37 @@ return array;
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 _.every = function(coll, func){
+if(!func){ // chech if func has a value
+   if(Array.isArray(coll)){
+     for(let i = 0; i < coll.length; i++){
+        if(!coll[i]){
+            return false;
+        }
+     }
+   }else{
+     for(var key in coll){
+        if(!coll[key]){
+            return false
+        }
+     }
+   }
 
+}else{
+    if(Array.isArray(coll)){
+        for(let i = 0; i < coll.length; i++){
+           if(!func(coll[i], i, coll)){
+               return false;
+           }
+        }
+      }else{
+        for(var key in coll){
+           if(!func(coll[key], key, coll)){
+               return false
+           }
+        }
+      }
+}
+return true;
 }
 
 /** _.some
@@ -390,6 +440,37 @@ _.every = function(coll, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 _.some = function(coll, func){
+    if(!func){ // chech if func has a value
+        if(Array.isArray(coll)){
+          for(let i = 0; i < coll.length; i++){
+             if(coll[i]){
+                 return true;
+             }
+          }
+        }else{
+          for(var key in coll){
+             if(coll[key]){
+                 return true;
+             }
+          }
+        }
+     
+     }else{
+         if(Array.isArray(coll)){
+             for(let i = 0; i < coll.length; i++){
+                if(func(coll[i], i, coll)){
+                    return true;
+                }
+             }
+           }else{
+             for(var key in coll){
+                if(func(coll[key], key, coll)){
+                    return true
+                }
+             }
+           }
+     }
+     return false;
 
 }
 
@@ -429,15 +510,10 @@ _.reduce = function(arr, func, seed){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(obj1, obj2){
-    console.log(obj2);
-    for(var key in obj1 ){
-    if(obj1[key] !== obj2[key]){
-        obj1[key] = obj2[key];
-    }else{
-        obj1[obj2[key]];
-    }
-}
+_.extend = function(...obj){
+    
+    return Object.assign(...obj, {});
+
 }
 
 //////////////////////////////////////////////////////////////////////
