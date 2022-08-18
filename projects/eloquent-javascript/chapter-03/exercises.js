@@ -23,9 +23,9 @@ return false;
 
 function countChars(str, char) {
 var num = 0;
-  for(var i = 0; i , str.length; i++){
-  if(str[i].include(char)){
-    num =+ 1;
+  for(var i = 0; i < str.length; i++){
+  if(str[i] === char){
+    num += 1;
   }
 }
 return num;
@@ -35,8 +35,8 @@ return num;
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(str) {
+return countChars(str, 'B');
 }
 
 ////////////////////////////////////////////////////////////////////////////////

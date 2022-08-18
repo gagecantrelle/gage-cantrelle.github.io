@@ -39,8 +39,8 @@ var femaleCount = function(array){
     return females;
 }
 
-var oldestCustome = function(array){
-    var old = _.fliter(array, function(customer){
+var oldestCustomer = function(array){
+    var old = _.filter(array, function(customer){
        for(var i = 0; i < customer.length; i++){
 
        } 
