@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+//const { isUndefined, result } = require("lodash");
+
 var _ = {};
 
 
@@ -493,9 +495,21 @@ _.some = function(coll, func){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 _.reduce = function(arr, func, seed){
-    
+    var result;
+    if(seed !== undefined){
+     result = seed;
+     for(let i = 0; i < arr.length; i++){
+        result = func(result, arr[i], i, arr);
+     }
+    }else{ 
+     result = arr[0];
+     for(let y = 1; y < arr.length; y++){
+        result = func(result, arr[y], y, arr);
+    } 
 }
 
+return result;
+}
 /** _.extend
 * Arguments:
 *   1) An Object
