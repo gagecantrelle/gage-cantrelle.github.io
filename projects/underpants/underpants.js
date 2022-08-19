@@ -208,16 +208,16 @@ _.contains = function(arr, value){ // take in array and value
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
- _.each = function(collection, func){
-       if(Array.isArray(collection)){
-       for(var i = 0; i < collection.length; i++){
-        func(collection[i], i, collection)  //llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+ _.each = function(collection, func){ //take in a collection of value and a function  will return a set number of value for each value in the function
+       if(Array.isArray(collection)){ // check if collection is array
+       for(var i = 0; i < collection.length; i++){ // loop through collection
+        func(collection[i], i, collection)  // the function will contain all values in collection
 
         
        }
-       }else{
-        for(var key in collection){
-            func(collection[key], key, collection)
+       }else{ // run if collection is not array
+        for(var key in collection){ // loop through collection
+            func(collection[key], key, collection) // he function will contain all values in collection
         }
        }
  }
@@ -231,14 +231,14 @@ _.contains = function(arr, value){ // take in array and value
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-_.unique = function(arr){
-    var array = [];
-    for(var i = 0; i < arr.length; i++){
-        if(array.indexOf(arr[i]) === -1){
-            array.push(arr[i]);
+_.unique = function(arr){ //take in array     return array with no duplictes 
+    var array = []; // set empty array
+    for(var i = 0; i < arr.length; i++){ // loop through array
+        if(array.indexOf(arr[i]) === -1){ // check if there no value that is the same value in arr
+            array.push(arr[i]); // give array spefic value
         }
     }
-    return array;
+    return array; // return empty array if all test return false
 }
 
 /** _.filter
@@ -278,14 +278,14 @@ _.filter = function(arr, func){ // take in array and function    will return all
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-_.reject = function(arr, func){
-   var array = [];
-    for(var i = 0; i < arr.length; i++){
-     if(func(arr[i], i, arr) === false){
-        array.push(arr[i]);
+_.reject = function(arr, func){ // take in array and function    will return all value that are not speficfide in array or object
+   var array = []; //set blank array
+    for(var i = 0; i < arr.length; i++){ // loop through arr
+     if(func(arr[i], i, arr) === false){ // check all value in array dose have speficy value
+        array.push(arr[i]); // give array spefict arr value
      }
    }
-   return array;
+   return array; // return array
 }
 
 /** _.partition
@@ -306,19 +306,19 @@ _.reject = function(arr, func){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-_.partition = function(arr, func){
-    var arrayT = [];
-    var arrayF = [];
-    var arrayA = [];
-    for(var i = 0; i < arr.length; i++){
-        if(func(arr[i], i, arr)){
-           arrayT.push(arr[i]);
-        }else if(!func(arr[i], i, arr)){
-            arrayF.push(arr[i]);
+_.partition = function(arr, func){ // take in array and function   return an array with two array whichi one contanin spefic values an the other left over value
+    var arrayT = []; // set to empty arrray
+    var arrayF = []; // set to empty arrray
+    var arrayA = []; // set to empty arrray
+    for(var i = 0; i < arr.length; i++){ // loop through arr
+        if(func(arr[i], i, arr)){ // check for spefic value
+           arrayT.push(arr[i]); // give arrayT spefic value
+        }else if(!func(arr[i], i, arr)){ //// check for non-spefic value
+            arrayF.push(arr[i]); // give arrayF non-spefic value
         }
      
     }
-     return arrayA.concat([arrayT], [arrayF]);
+     return arrayA.concat([arrayT], [arrayF]); // return an array with two array whichi one contanin spefic values an the other left over value
       
 
 
@@ -339,18 +339,18 @@ _.partition = function(arr, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-_.map = function(coll, func){// take in collection and function         retun spefic key
-    var array = [];
-    if(Array.isArray(coll)){
-    for( var i = 0; i < coll.length; i++){
-        array.push(func(coll[i], i, coll));
+_.map = function(coll, func){// take in collection and function         retun array of spefic value
+    var array = []; //set empty array
+    if(Array.isArray(coll)){ // check if coll is array
+    for( var i = 0; i < coll.length; i++){ //loop through coll
+        array.push(func(coll[i], i, coll)); // give array spfic value for coll
     } 
-    }else{
-      for(var key in coll){
-        array.push(func(coll[key], key, coll));
+    }else{ // run if not array
+      for(var key in coll){ //loop through coll
+        array.push(func(coll[key], key, coll)); // give array spfic value for coll
       }
     }
-    return array;
+    return array; // return array
 }
 
 /** _.pluck
@@ -363,7 +363,7 @@ _.map = function(coll, func){// take in collection and function         retun sp
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-_.pluck = function(ArrObj, key ){
+_.pluck = function(ArrObj, key ){ // take in a array of object and a property key
 return ArrObj.map(obj => obj[key]); //return array map (function parameter is obj return the obj value)
 }
 
@@ -389,36 +389,36 @@ return ArrObj.map(obj => obj[key]); //return array map (function parameter is ob
 */
 _.every = function(coll, func){
 if(!func){ // chech if func has a value
-   if(Array.isArray(coll)){
-     for(let i = 0; i < coll.length; i++){
-        if(!coll[i]){
-            return false;
+   if(Array.isArray(coll)){ //check if coll is an array
+     for(let i = 0; i < coll.length; i++){ //loop through collection
+        if(!coll[i]){ // check if coll spefic value is not true
+            return false; // return false
         }
      }
-   }else{
-     for(var key in coll){
-        if(!coll[key]){
-            return false
+   }else{ // run if coll not an array
+     for(var key in coll){ //loop through collection
+        if(!coll[key]){ // check if coll spefic value is not true
+            return false // return false
         }
      }
    }
 
-}else{
-    if(Array.isArray(coll)){
-        for(let i = 0; i < coll.length; i++){
-           if(!func(coll[i], i, coll)){
-               return false;
+}else{ // run if fun has a value
+    if(Array.isArray(coll)){ //check if coll is an array
+        for(let i = 0; i < coll.length; i++){ // loop through coll
+           if(!func(coll[i], i, coll)){ // check if coll spefic value is not true
+               return false; //return false
            }
         }
-      }else{
-        for(var key in coll){
-           if(!func(coll[key], key, coll)){
-               return false
+      }else{ // run if coll is not array
+        for(var key in coll){ // loop through coll
+           if(!func(coll[key], key, coll)){ // check if coll spefic value is not true
+               return false; //return false
            }
         }
       }
 }
-return true;
+return true; // return true
 }
 
 /** _.some
@@ -443,36 +443,36 @@ return true;
 */
 _.some = function(coll, func){
     if(!func){ // chech if func has a value
-        if(Array.isArray(coll)){
-          for(let i = 0; i < coll.length; i++){
-             if(coll[i]){
-                 return true;
+        if(Array.isArray(coll)){ //check if coll is an array
+          for(let i = 0; i < coll.length; i++){ // loop through coll
+             if(coll[i]){ //check if coll spefic value is true
+                 return true; //return true
              }
           }
-        }else{
-          for(var key in coll){
-             if(coll[key]){
-                 return true;
+        }else{ // run if coll is not an array
+          for(var key in coll){ // loop through coll
+             if(coll[key]){ // check if coll spefic value is true
+                 return true; //return true
              }
           }
         }
      
-     }else{
-         if(Array.isArray(coll)){
-             for(let i = 0; i < coll.length; i++){
-                if(func(coll[i], i, coll)){
-                    return true;
+     }else{ // run if func has value
+         if(Array.isArray(coll)){ // check if coll is array
+             for(let i = 0; i < coll.length; i++){ // loop through attay
+                if(func(coll[i], i, coll)){ // check if all value in coll is true
+                    return true; //return true
                 }
              }
-           }else{
-             for(var key in coll){
-                if(func(coll[key], key, coll)){
-                    return true
+           }else{ // run if coll is not an array
+             for(var key in coll){ // loop through coll
+                if(func(coll[key], key, coll)){ //check if all values in coll is true
+                    return true // return true
                 }
              }
            }
      }
-     return false;
+     return false; //return false
 
 }
 
@@ -494,21 +494,21 @@ _.some = function(coll, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-_.reduce = function(arr, func, seed){ // take in array , function, and seed    will return a single value speficed in array
+_.reduce = function(arr, func, seed){ // take in array , function, and seed    will return all value in array and a curent value
     var result; // result is undefind
     if(seed !== undefined){ // check if seed is not undefind
      result = seed; //set result equal to seed
      for(let i = 0; i < arr.length; i++){ // loop through arr
-        result = func(result, arr[i], i, arr);
+        result = func(result, arr[i], i, arr); // set result to func with result and all value in array
      }
     }else{ // run if seed is undefind
      result = arr[0];
      for(let y = 1; y < arr.length; y++){ //loop through arr
-        result = func(result, arr[y], y, arr);
+        result = func(result, arr[y], y, arr); // set result to func with result and all value in array
     } 
 }
 
-return result;
+return result; // return result 
 }
 /** _.extend
 * Arguments:
@@ -524,9 +524,9 @@ return result;
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(...obj){
+_.extend = function(...obj){ //take in mutiple object
     
-    return Object.assign(...obj, {});
+    return Object.assign(...obj, {}); // return new object with other objects
 
 }
 
