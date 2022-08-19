@@ -35,35 +35,67 @@ var femaleCount = function(array){
         if(customer.gender === 'female'){
         accumalte += 1;
         }
+        return accumalte;
     }, 0)
     return females;
 }
 
 var oldestCustomer = function(array){
-    var old = _.filter(array, function(customer){
-       for(var i = 0; i < customer.length; i++){
-
-       } 
-        return customer.age[i] > customer.age;
+    var old = _.reduce(array, function(accumalte, customer){
+       if(customer.age > accumalte.age ){
+        return customer;
+       }
+       return accumalte;
     })
-    return customer[i].name;
+    return old.name;
 };
 
 var youngestCustomer = function(array){
+    var young = _.reduce(array, function(accumalte, customer){
+        if(customer.age < accumalte.age ){
+         return customer;
+        }
+        return accumalte;
+     })
+     return young.name;
+    
+};
+
+var averageBalance = function(array){   // need to change string to number  parseFloat()  .replacr(/[$,]/g, "")
+var average = _.map(array, function(customer){
+    var str = customer.replace(/[$,]/g, "");
+    var num = str.parseFloat();
+})
+} //loop through array  divide by length
+
+var firstLetterCount = function(array, letter){
+var firstchar = _.fliter(array, function(letter){
+      
+    return firstchar.name[0] === letter;
+})
+}
+
+var friendFirstLetterCount = function(array, customer, letter){
+ for(var i = 0; i < array.length; i++){
+
+ }
+}
+
+var friendsCount = function(array, name){
+var count = _.contains(array, name);
+if(count === true){
+return count.friends.name;
+}
 
 };
 
-var averageBalance;
+var topThreeTags = function(array){
 
-var firstLetterCount;
+}
 
-var friendFirstLetterCount;
+var genderCount = function(array){
 
-var friendsCount;
-
-var topThreeTags;
-
-var genderCount;
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

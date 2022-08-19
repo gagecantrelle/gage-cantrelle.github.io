@@ -22,8 +22,8 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-_.identity = function(value){
-return value;
+_.identity = function(value){ //take in any value
+return value; //return any value
 }
 
 /** _.typeOf
@@ -45,29 +45,29 @@ return value;
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-_.typeOf = function(value){
-    var vtest = "";
-    if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){
-      vtest = "object";
-   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === true && value instanceof Date === false){
-      vtest = "array";
-   }else if(typeof value === 'object' && value === null && Array.isArray(value) === false && value instanceof Date === false){
-      vtest = "null";
-   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === true){
-      vtest = "date";
-   }else if(typeof value === 'function'){
-      vtest = "function";
-   }else if(typeof value === 'undefined'){
-    vtest = "undefined";
-   }else if(typeof value === 'string'){
-    vtest = "string";
-   }else if(typeof value === 'number'){
-    vtest = "number";
-   }else if(typeof value === 'boolean'){
-    vtest = "boolean";
+_.typeOf = function(value){ // take in a value
+    var vtest = ""; //set vtest to empty string
+    if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){ //test if value is an object 
+      vtest = "object"; //set vtest to object
+   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === true && value instanceof Date === false){ //test if value is an array 
+      vtest = "array"; //set vtest to array
+   }else if(typeof value === 'object' && value === null && Array.isArray(value) === false && value instanceof Date === false){ //test if value is null
+      vtest = "null"; //set vtest to null
+   }else if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === true){ //test if value is an date 
+      vtest = "date"; //set vtest to date
+   }else if(typeof value === 'function'){ //test if value is an function
+      vtest = "function"; //set vtest to function
+   }else if(typeof value === 'undefined'){ //test if value is an undefined
+    vtest = "undefined"; //set vtest to undefined
+   }else if(typeof value === 'string'){ //test if value is an string
+    vtest = "string"; //set vtest to string
+   }else if(typeof value === 'number'){ //test if value is an number
+    vtest = "number"; //set vtest to number
+   }else if(typeof value === 'boolean'){ //test if value is an boolean
+    vtest = "boolean"; //set vtest to boolean
    }
-   console.log(vtest)
-   return vtest;
+   console.log(vtest) // print to the console vtest
+   return vtest; //return vtest
   
 }
 
@@ -88,24 +88,24 @@ _.typeOf = function(value){
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-_.first = function(arr, num){
-    var array = [];
-    if(Array.isArray(arr)){
-       for(var i = 0; i <= arr.length; i++){
-        if(num === undefined){
-            return arr[0];
-        }else if(i === num){
-         return array;
-        }else if(num < 0){
-            return array;
-        }else if(arr.length < num){
-            return arr;
+_.first = function(arr, num){ // take in a array and a number
+    var array = []; //set empty array
+    if(Array.isArray(arr)){ // check if arr is array
+       for(var i = 0; i <= arr.length; i++){ // loop through array
+        if(num === undefined){ // chech if num is undefined
+            return arr[0]; // return frist value in arr
+        }else if(i === num){ // check if i is equal num
+         return array; //return array
+        }else if(num < 0){ // check if num is less than 0
+            return array; // return array
+        }else if(arr.length < num){ //check if the arr length is less than num
+            return arr; // return arr
         }
 
-        array.push(arr[i]);
+        array.push(arr[i]); // give array a new value from arr[i]
        }
-    }else{
-        return array;
+    }else{ // run if arr is not a array
+        return array; // return array
     }
 }
 
@@ -126,20 +126,20 @@ _.first = function(arr, num){
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-_.last = function(arr, num){
+_.last = function(arr, num){ // take in a array and a number
     
     
        
-         if(num === undefined){
-             return arr[arr.length -1];
-         }else if(Array.isArray(arr) === false){
-          return [];
-         }else if(num < 0){
-             return [];
-         }else if(num > arr.length){
-             return arr;
-         }else{
-             return num = arr.slice(-num);
+         if(num === undefined){ // chech if num is undefined
+             return arr[arr.length -1]; // return last value in arr
+         }else if(Array.isArray(arr) === false){ // check if arr is not a array
+          return []; //return blank array
+         }else if(num < 0){ // check if i is lessthan num
+             return []; //return blank array
+         }else if(num > arr.length){ //check if num is greater than arr length
+             return arr; //return arr
+         }else{ // run if num is not undefined
+             return num = arr.slice(-num); //return last values in arr
          }
 
 }
@@ -159,15 +159,15 @@ _.last = function(arr, num){
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-_.indexOf = function(arr, value){
-    for(var i = 0; i <= arr.length; i++){
-        if(arr[i] === value){
-            return i;
+_.indexOf = function(arr, value){ // take in array and a value
+    for(var i = 0; i <= arr.length; i++){ //loop through arr
+        if(arr[i] === value){ //check if arr[i] is equal to value 
+            return i; // return i
         }
             
         
     }
-    return -1;
+    return -1; // return -1 if all values are false
 }
 
 /** _.contains
@@ -184,13 +184,13 @@ _.indexOf = function(arr, value){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-_.contains = function(arr, value){
-    for(var i = 0; i < arr.length; i++){
-     if(arr[i] === value){
-        return true;
+_.contains = function(arr, value){ // take in array and value
+    for(var i = 0; i < arr.length; i++){ // loop through arr
+     if(arr[i] === value){  //check if arr[i] is equal to value 
+        return true; // return true
      }
     }
-    return false;
+    return false; // return false
 }
 
 /** _.each
@@ -211,7 +211,7 @@ _.contains = function(arr, value){
  _.each = function(collection, func){
        if(Array.isArray(collection)){
        for(var i = 0; i < collection.length; i++){
-        func(collection[i], i, collection)
+        func(collection[i], i, collection)  //llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 
         
        }
@@ -256,14 +256,14 @@ _.unique = function(arr){
 * Extra Credit:
 *   use _.each in your implementation
 */
-_.filter = function(arr, func){
-    var array = [];
-    for(var i = 0; i < arr.length; i++){
-        if(func(arr[i], i, arr)){
-        array.push(arr[i]);
+_.filter = function(arr, func){ // take in array and function    will return all value that are speficfide in array or object
+    var array = []; //set blank array
+    for(var i = 0; i < arr.length; i++){ //loop through array
+        if(func(arr[i], i, arr)){ // check if values all equal true
+        array.push(arr[i]); // push arr[i] in array
         }
     }
-    return array;
+    return array; //return array
 }
 
 /** _.reject
@@ -339,7 +339,7 @@ _.partition = function(arr, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-_.map = function(coll, func){
+_.map = function(coll, func){// take in collection and function         retun spefic key
     var array = [];
     if(Array.isArray(coll)){
     for( var i = 0; i < coll.length; i++){
@@ -494,16 +494,16 @@ _.some = function(coll, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-_.reduce = function(arr, func, seed){
-    var result;
-    if(seed !== undefined){
-     result = seed;
-     for(let i = 0; i < arr.length; i++){
+_.reduce = function(arr, func, seed){ // take in array , function, and seed    will return a single value speficed in array
+    var result; // result is undefind
+    if(seed !== undefined){ // check if seed is not undefind
+     result = seed; //set result equal to seed
+     for(let i = 0; i < arr.length; i++){ // loop through arr
         result = func(result, arr[i], i, arr);
      }
-    }else{ 
+    }else{ // run if seed is undefind
      result = arr[0];
-     for(let y = 1; y < arr.length; y++){
+     for(let y = 1; y < arr.length; y++){ //loop through arr
         result = func(result, arr[y], y, arr);
     } 
 }
