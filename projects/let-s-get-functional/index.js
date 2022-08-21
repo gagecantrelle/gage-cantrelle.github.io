@@ -90,7 +90,7 @@ var friendFirstLetterCount = function(array, customer, letter){
  customer.toUpperCase();
  letter.toUpperCase();
  _.some(array, function(customer, letter){
-    if(customer[0] === letter){
+    if(customer.friends[0] === letter){
         count++;
     }
  })
@@ -110,12 +110,13 @@ return list;
 
 var topThreeTags = function(array){
     var topthree = []
-    var tags = _.map(array, function(acc, cur){
-if(!array.tag[i]){
-topthree.push(cur);
+    var tags = _.map(array, function(value){
+if(!array.tag){
+topthree.push(value.tag);
 }
 
 })
+
 return tags;
 }
 
