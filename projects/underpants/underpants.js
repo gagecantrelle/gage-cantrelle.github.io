@@ -127,9 +127,6 @@ _.first = function(arr, num){ // take in a array and a number
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 _.last = function(arr, num){ // take in a array and a number
-    
-    
-       
          if(num === undefined){ // chech if num is undefined
              return arr[arr.length -1]; // return last value in arr
          }else if(Array.isArray(arr) === false){ // check if arr is not a array
@@ -141,7 +138,6 @@ _.last = function(arr, num){ // take in a array and a number
          }else{ // run if num is not undefined
              return num = arr.slice(-num); //return last values in arr
          }
-
 }
 
 /** _.indexOf

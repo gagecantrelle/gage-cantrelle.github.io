@@ -163,7 +163,7 @@ for(var i = 0; i <array.length; i++){
         list.push(array[i].name);
       {
       
-         
+
        }  
     }
 }

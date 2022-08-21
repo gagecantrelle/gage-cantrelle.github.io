@@ -65,27 +65,52 @@ var averageBalance = function(array){   // need to change string to number  pars
 var average = _.map(array, function(customer){
     var str = customer.replace(/[$,]/g, "");
     var num = str.parseFloat();
+    
+    return num;
 })
+var total = average / array.length;
+return total;
 } //loop through array  divide by length
 
 var firstLetterCount = function(array, letter){
-var firstchar = _.fliter(array, function(letter){
-      
-    return firstchar.name[0] === letter;
-})
+    var count = 0;
+    customer.toUpperCase();
+    letter.toUpperCase();
+    var friendcount = _.some(array, function(array, letter){
+       if(array.name[0] === letter){
+           count++;
+       }
+    })
+    
+   
+   return count;
+
+   
+
+
 }
 
-var friendFirstLetterCount = function(array, customer, letter){
- for(var i = 0; i < array.length; i++){
 
- }
+var friendFirstLetterCount = function(array, customer, letter){
+ var count = 0;
+ customer.toUpperCase();
+ letter.toUpperCase();
+ _.some(array, function(customer, letter){
+    if(customer[0] === letter){
+        count++;
+    }
+ })
+ 
+
+return count;
 }
 
 var friendsCount = function(array, name){
-var count = _.contains(array, name);
-if(count === true){
-return count.friends.name;
-}
+var count = _.pluck(array, name);
+var list = [];
+list.push(count.friends);
+return list;
+
 
 };
 
@@ -94,7 +119,35 @@ var topThreeTags = function(array){
 }
 
 var genderCount = function(array){
-
+   var genders = {
+    male: 0,
+    female: 0,
+    "non-binary": 0
+   }
+    var females = _.reduce(array, function(accumalte, customer){
+        if(customer.gender === 'female'){
+        accumalte += 1;
+        }
+        return accumalte;
+    }, 0)
+    
+    var males = _.reduce(array, function(accumalte, customer){
+        if(customer.gender === 'male'){
+        accumalte += 1;
+        }
+        return accumalte;
+    }, 0)
+  
+    var nonBinary = _.reduce(array, function(accumalte, customer){
+        if(customer.gender === 'non-binary'){
+        accumalte += 1;
+        }
+        return accumalte;
+    }, 0)
+    genders.male = males;
+    genders.female = females;
+    genders["non-binary"] = nonBinary;
+    return genders;
 }
 
 //////////////////////////////////////////////////////////////////////
