@@ -65,29 +65,23 @@ var averageBalance = function(array){   // need to change string to number  pars
 var average = _.map(array, function(customer){
     var str = customer.replace(/[$,]/g, "");
     var num = str.parseFloat();
-    
     return num;
 })
-var total = average / array.length;
-return total;
+
+
+return Math.floor(average / array.length);
 } //loop through array  divide by length
 
 var firstLetterCount = function(array, letter){
     var count = 0;
     customer.toUpperCase();
     letter.toUpperCase();
-    var friendcount = _.some(array, function(array, letter){
+    _.some(array, function(array, letter){
        if(array.name[0] === letter){
            count++;
        }
     })
-    
-   
    return count;
-
-   
-
-
 }
 
 
@@ -115,7 +109,14 @@ return list;
 };
 
 var topThreeTags = function(array){
+    var topthree = []
+    var tags = _.map(array, function(acc, cur){
+if(!array.tag[i]){
+topthree.push(cur);
+}
 
+})
+return tags;
 }
 
 var genderCount = function(array){
