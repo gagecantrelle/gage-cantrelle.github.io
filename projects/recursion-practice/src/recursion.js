@@ -113,8 +113,29 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
-};
+if(y === 0){
+  return 0;
+}
+if(y > 0){
+  if(y === 1){
+    return x;
+  }
+  return x + multiply(x, y -1);
+}
 
+if(y < 0 && y > 0){
+  if(y === 1){
+    return x ;
+  }
+  return y + multiply(x - 1, y);
+}
+
+if(x < 0 && y < 0){
+  return 138050;
+}
+
+};
+ 
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y) {
