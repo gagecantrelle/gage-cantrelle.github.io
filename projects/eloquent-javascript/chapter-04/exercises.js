@@ -46,11 +46,12 @@ function reverseArrayInPlace(array) {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList(obj) {
-var list = [];
-for(var i = 0; i < obj.length; i++){
-  list.push(obj[i].value)
+function arrayToList(array) {
+let rest = null;
+for(let i = array.length -1; i >= 0; i--){
+  rest ={value: array[i], rest: rest};
 }
+return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
