@@ -217,6 +217,11 @@ var rMap = function(array, callback, arr=[]) {
   if(array === 0){
 return arr;
   }
+  callback.slice(5);
+  
+
+
+  return rMap(array.slice(1), callback, arr);
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
