@@ -85,25 +85,30 @@ if(num < 0){
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual(value1, value2) {
-if(typeof value1 === Object, array.isarray(value1) = false && typeof value2 === Object, array.isarray(value2) = false ){
- for(var i = 0; i < value1.length; i++){
-  if(value1[i] === value2[i]){
-    return true;
-  }else{
+function deepEqual(x, y){
+  if(typeof x !== 'object' && typeof y !== 'object'){
+    return x === y;
+  }
+  
+  if(typeof x !== 'object' || typeof y !== 'object'){
     return false;
   }
- }
-}else{
-  return false;
-}
-if(value1 === value2){
-  return true;
-}else{
-  return false;
-}
-
-}
+  
+    let xkeys = Object.keys(x);
+    let ykeys = Object.keys(y);
+  
+  if(xkeys.length !== ykeys.length){
+    return false;
+  }
+  
+   for(let i = 0; i < xkeys.length; i++){
+     if(!ykeys.includes(xkeys[i]) || !deepEqual(x[xkeys[i]], y[ykeys[i]])){
+       return false;
+     }
+   } 
+  
+  return true;  
+  }
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

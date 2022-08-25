@@ -217,9 +217,9 @@ var rMap = function(array, callback, arr=[]) {
   if(array === 0){
 return arr;
   }
-  callback.slice(5);
+  arr.push(array[0].callback());
   
-
+console.log(callback);
 
   return rMap(array.slice(1), callback, arr);
 };
