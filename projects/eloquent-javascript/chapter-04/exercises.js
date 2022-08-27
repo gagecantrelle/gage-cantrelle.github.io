@@ -4,7 +4,7 @@
 
 function range(start,end) {
 var numlist = [];
-  for(var i = 0; i < end.length; i++){
+  for(var i = 0; i < end; i++){
 numlist.push(i);
 }
 return numlist;
