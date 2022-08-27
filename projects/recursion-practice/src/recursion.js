@@ -235,7 +235,7 @@ var rMap = function(array, callback, arr=[]) {
   if(array === 0){
 return arr;
   }
-  arr.push(array[0].callback());
+  arr.push(callback(array[0]));
   
 console.log(callback);
 
@@ -274,8 +274,14 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n, count=0, value=0,) {
+if(n === 0){
+  return array = list[count];
+}
+var list = [0,1,1,2,3,5,8,13,21];
+count++;
 
+return nthFibo(n -1,count,value);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
@@ -295,7 +301,7 @@ var capitalizeFirst = function(array, output=[]) {
   if(array.length === 0){
     return output;
   }
-  output.push(array[0][0].toUpperCase());
+  output.push(array[0].charAt(0).toUpperCase());
   return capitalizeWords(array.slice(1), output);
 };
 
@@ -318,7 +324,18 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj={}) {
+  if(str === 0){
+  return obj;  
+  }
+  if(obj[str[0]]){
+    obj[str[0]] += 1;
+  }else{
+    obj[str[0]] = 1;
+  }
+console.log(obj);
+
+  return letterTally(str.slice(1), obj);
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -326,7 +343,16 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, nlist=[]) {
+  if(list.length === 0){
+  
+    return nilist;
+  }
+  if(list.indexOf(list[0]) === -1){
+nlist.push(list[0]);
+  }
+  console.log(nlist);
+  return compress(list.slice(1), nlist);
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -338,7 +364,14 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, arr=[]) {
+  if(array.length === 0){
+   return arr;
+  }
+  if(arr[array[0]]){
+  }
+
+
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
