@@ -63,59 +63,89 @@ var youngestCustomer = function(array){
 
 var averageBalance = function(array){   // need to change string to number  parseFloat()  .replacr(/[$,]/g, "")
 var average = _.map(array, function(customer){
-    var str = customer.replace(/[$,]/g, "");
-    var num = str.parseFloat();
+    var str = customer.balance.replace(/[$,]/g, "");
+    var num = parseFloat(str);
     return num;
 })
+;
+var total = 0;
+for(var i = 0; i < average.length; i++){
+total += average[i];
 
+}
 
-return Math.floor(average / array.length);
+return total / array.length;
 } //loop through array  divide by length
 
 var firstLetterCount = function(array, letter){
     var count = 0;
-    customer.toUpperCase();
-    letter.toUpperCase();
-    _.some(array, function(array, letter){
-       if(array.name[0] === letter){
-           count++;
-       }
-    })
+  
+for(var i = 0; i < array.length; i++){
+ if(array[i].name[0].toUpperCase() === letter.toUpperCase()){
+    count++;
+    }
+}
    return count;
 }
 
 
 var friendFirstLetterCount = function(array, customer, letter){
  var count = 0;
- customer.toUpperCase();
- letter.toUpperCase();
- _.some(array, function(customer, letter){
-    if(customer.friends[0] === letter){
-        count++;
-    }
- })
  
-
+ for(var i = 0; i < array.length; i++){
+   if(array[i].name === customer){
+    for(var y = 0; y < array[i].friends.length; y++){
+    if(array[i].friends[y].name[0].toUpperCase() === letter.toUpperCase()){
+        count++;
+     }
+   }
+   }
+ }
 return count;
 }
-
 var friendsCount = function(array, name){
-var count = _.pluck(array, name);
-var list = [];
-list.push(count.friends);
+ var list = [];
+for(var i = 0; i < array.length; i++){
+     for(var y = 0; y < array[i].friends.length; y++){
+      if(array[i].friends[y].name === name){
+        list.push(array[i].name);
+      }
+    }
+    }
+    
 return list;
-
-
 };
 
 var topThreeTags = function(array){
-    var topthree = []
-    var tags = _.map(array, function(value){
-if(!array.tag){
-topthree.push(value.tag);
+var topthree = [];
+var tag = [];
+for(var i = 0; i < array.length; i++){
+    for(var y = 0; i < array[i].tags.length; y++){
+        tag.push(array[i].tags[y])
+    }
 }
+var obj = {};
 
-})
+for(var j = 0; j < tag.length; j++){
+    if(obj[tag[j]]){
+        obj[tag[j]] += 1;
+    }else{
+        obj[tag[j]] = 1;
+    }
+    
+}
+console.log(obj);
+var top = [];
+for(var key in obj){
+    if(obj[key] > obj[0]){
+     top = obj[key];
+    }
+    
+}
+topthree.push(top);
+top.slice(1);
+
+
 
 return tags;
 }

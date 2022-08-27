@@ -63,8 +63,14 @@ return n + sumBelow(n - 1);
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = function(x, y, arr=[]) {
+if(x === 0){
+return onabort;
+}
+arr = arr.slice(x, y);
+console.log(arr);
 
+return range(x - 1, y)
 };
 
 // 7. Compute the exponent of a number.
@@ -73,7 +79,10 @@ var range = function(x, y) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
-
+if(exp === 0){
+  return 0;
+}
+return base * exponent(base, exp -1);
 };
 
 // 8. Determine if a number is a power of two.
@@ -100,7 +109,16 @@ if(string[0] === string.length-1){
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-  console.log(string);
+  if(string.length === 0){
+    return true;
+  }
+  str = string.toLowerCase();
+  if(str.length !== str[str.length -1]){
+    return false
+  }
+  
+  
+  return palindrome(string.slice(1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -257,17 +275,28 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input, output=[]) {
+if(input.length === 0){
+  return output;
+}
+output.push(input[0].toUpperCase());
+return capitalizeWords(input.slice(1), output);
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
+var capitalizeFirst = function(array, output=[]) {
+  if(array.length === 0){
+    return output;
+  }
+  output.push(array[0][0].toUpperCase());
+  return capitalizeWords(array.slice(1), output);
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
