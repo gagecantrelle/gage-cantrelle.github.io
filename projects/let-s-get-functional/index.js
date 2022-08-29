@@ -145,7 +145,23 @@ for(var key in obj){
 topthree.push(top);
 top.slice(1);
 
+for(var key in obj){
+    if(obj[key] > obj[0]){
+     top = obj[key];
+    }
+    
+}
+topthree.push(top);
+top.slice(1);
 
+for(var key in obj){
+    if(obj[key] > obj[0]){
+     top = obj[key];
+    }
+    
+}
+topthree.push(top);
+top.slice(1);
 
 return tags;
 }
