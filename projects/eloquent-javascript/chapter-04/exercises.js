@@ -4,9 +4,10 @@
 
 function range(start,end) {
 var numlist = [];
-  for(var i = 0; i < end; i++){
+  for(var i = start; i < end; i++){
 numlist.push(i);
 }
+console.log(numlist);
 return numlist;
 }
 

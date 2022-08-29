@@ -52,13 +52,14 @@ return isEven(n - 2);
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-var count = 0;
-count++
-  if(n === 0){
-  n - count;
-    return 0;
+if(n === 0){
+  return 0;
 }
-return n + sumBelow(n - 1);
+if(n < 0){
+return n - sumBelow(-n - 1) + 1;
+}else{
+return n + sumBelow(n - 1) - 1;
+}
 };
 
 // 6. Get the integers in range (x, y).
