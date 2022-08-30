@@ -69,8 +69,7 @@ if(x === y){
 return arr;
 }
 
-if(x < y){
-   
+if(x < y){ 
   arr.push(x + 1);
    return range(x + 1, y )  //asscending
   }else{                      
@@ -91,7 +90,11 @@ var exponent = function(base, exp) {
 if(exp === 0){
   return 1;
 }
+if(exp < 0){
+return -base * exponent(base, exp + 1);
+}else{
 return base * exponent(base, exp -1);
+}
 };
 
 // 8. Determine if a number is a power of two.
@@ -99,12 +102,14 @@ return base * exponent(base, exp -1);
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-if(n % 2 === 0){
+if(n === 0){
+  return false;
+}else if( n === 1){
   return true;
-}else if( n % 2 === 1){
+}else if(n % 2 !== 0){
   return false;
 }
-return powerOfTwo(n -1);
+return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
