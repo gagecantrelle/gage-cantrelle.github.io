@@ -65,13 +65,31 @@ return n + sumBelow(n - 1) - 1;
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, arr=[]) {
-if(x === 0){
-return onabort;
+if(x === y){
+return arr;
 }
-arr = arr.slice(x, y);
-console.log(arr);
 
-return range(x - 1, y)
+if(x && y < 0){
+
+if(x < y){
+   arr.push(x - 1)
+   return range(x - 1, y )
+  }else{
+     arr.push(x + 1)
+    return range(x + 1, y )
+ }
+
+}else{
+
+if(x < y){
+arr.push(x + 1)
+return range(x + 1, y )
+}else{
+  arr.push(x - 1)
+return range(x - 1, y )
+}
+}
+
 };
 
 // 7. Compute the exponent of a number.
