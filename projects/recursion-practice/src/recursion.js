@@ -69,26 +69,16 @@ if(x === y){
 return arr;
 }
 
-if(x && y < 0){
-
 if(x < y){
-   arr.push(x - 1)
-   return range(x - 1, y )
-  }else{
-     arr.push(x + 1)
-    return range(x + 1, y )
- }
+   
+  arr.push(x + 1);
+   return range(x + 1, y )  //asscending
+  }else{                      
+     arr.push(x - 1);
+    return range(x - 1, y )  // desscending
+  }
 
-}else{
 
-if(x < y){
-arr.push(x + 1)
-return range(x + 1, y )
-}else{
-  arr.push(x - 1)
-return range(x - 1, y )
-}
-}
 
 };
 
@@ -99,7 +89,7 @@ return range(x - 1, y )
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
 if(exp === 0){
-  return 0;
+  return 1;
 }
 return base * exponent(base, exp -1);
 };
