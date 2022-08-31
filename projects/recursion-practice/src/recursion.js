@@ -114,24 +114,24 @@ return powerOfTwo(n / 2);
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
-console.log(string);
-var str = '';
-if(string[0] === string.length-1){
-  str = string.replace(string[0], string.length-1);
-} 
+  if (string.length === 0) return string;
+  return reverse(string.substring(1)) + string.charAt(0)
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-  if(string.length === 0){
+  if(string.length === 0 ){
+    return true;
+  }
+  if(string.length === 1 ){
     return true;
   }
   str = string.toLowerCase();
-  if(str.length !== str[str.length -1]){
+  if(str.length[0] !== str[str.length -1]){
     return false
   }
-  
-  
+  var cut = string.length -1;
+  string.slice(cut);
   return palindrome(string.slice(1));
 };
 
@@ -288,14 +288,14 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n, count=0, value=0,) {
+var nthFibo = function(n, count=0) {
 if(n === 0){
   return array = list[count];
 }
 var list = [0,1,1,2,3,5,8,13,21];
 count++;
 
-return nthFibo(n -1,count,value);
+return nthFibo(n -1,count);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
@@ -392,7 +392,34 @@ var minimizeZeroes = function(array, arr=[]) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, arr=[]) {
+  if(array.length === 0){
+    return arr;
+  }
+
+  if(array[0] > 0){
+    if(array[1] < 0){
+      arr.push(array[0]);
+      arr.push(array[1]);
+
+    }else{
+      arr.push(array[0]);
+      arr.push(array[1] * -1);
+
+    }
+  }else{
+    if(array[1] < 0){
+      arr.push(array[0] * -1);
+      arr.push(array[1]);
+
+    }else{
+      arr.push(array[0] * -1);
+      arr.push(array[1] * -1);
+
+    }
+  }
+
+  return alternateSign(array.slice(1), arr);
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
