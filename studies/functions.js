@@ -65,3 +65,47 @@ console.log(a); // print 2
 //function Closures
 //Functions form closure around the code the hold ( {} ). when a function return a value and is stored some where the code in the
 //function will sill exist
+
+//High-order functions
+//a function inside a function
+
+function test6(array){
+var t6 = function(arr){
+    for(let i = 0; i < arr.length; i++){
+       console.log(i); 
+    }
+}
+}
+
+var t = [1, 2, ,3];
+test6(t);
+
+
+// function recursion
+// a loop made with a function
+function test7(n, count=0){
+    if(n.length === 0){
+        return count;    // return how many items in array
+    }
+count++;
+return test7(n.slice(1), count);  // will loop
+}
+var t7 = ['a', 'b', 'c' ];
+console.log(test7(t7)); // prints 3
+
+//by return the same function in it self we created a loop. to stop this loop we created an if statement to check if n length is equal to
+//zero. then when we return the function we take of a value in the array. when n length is zero we return the varibale count that was created
+//in the paramters. by make count in the praramters it dosen't get reset. but if we return the function we have to put count in the function too.
+
+function test7(n){
+    if(n.length === 0){
+        return count;    // return how many items in array
+    }
+var count = 0;  
+count++;
+return test7(n.slice(1), count);  // will loop
+}
+var t7 = ['a', 'b', 'c' ];
+console.log(test7(t7)); // prints 1
+
+// by declaring count in the function loop count will all way be reset to zero
