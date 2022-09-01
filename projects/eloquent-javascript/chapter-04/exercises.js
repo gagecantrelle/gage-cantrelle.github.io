@@ -9,13 +9,20 @@ return array;
 }
   if(step){
   if (step > 0) {
-    for (let i = start; i <= end; i += step) array.push(i);
+    array.push(start);
+    var cur = start + step;
+    for(var i = cur; i <= end; i += step){
+      array.push(i);
+    }
+  
   } else {
     return array;
   }
  
 }else{
-  for (let i = start; i <= end; i++) array.push(i);
+  for (let i = start; i <= end; i++){
+    array.push(i);
+  }
 }
 return array;
 }

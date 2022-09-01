@@ -66,19 +66,16 @@ return n + sumBelow(n - 1) - 1;
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, arr=[]) {
 if(x === y){
+arr.pop();
 return arr;
 }
-
 if(x < y){ 
   arr.push(x + 1);
-   return range(x + 1, y )  //asscending
+   return range(x + 1, y, arr)  //asscending
   }else{                      
      arr.push(x - 1);
-    return range(x - 1, y )  // desscending
+    return range(x - 1, y, arr)  // desscending
   }
-
-
-
 };
 
 // 7. Compute the exponent of a number.
@@ -90,9 +87,16 @@ var exponent = function(base, exp) {
 if(exp === 0){
   return 1;
 }
+if(exp === 1){
+  return base;
+}
+if(exp === -1){
+  return 1/base;
+}
+
 if(exp < 0){
-return -base * exponent(base, exp + 1);
-}else{
+return 1/base * exponent(base, exp + 1);
+}else if(exp > 0){
 return base * exponent(base, exp -1);
 }
 };
@@ -119,20 +123,30 @@ var reverse = function(string) {
 };
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {
+var palindrome = function(string, keeper='', back='') {
   if(string.length === 0 ){
-    return true;
+  back = back.toLowerCase().replace(" ", "");
+    if(keeper !== back){
+      return false;
+    }else{
+      return true;
+    }
   }
-  if(string.length === 1 ){
-    return true;
-  }
-  str = string.toLowerCase();
-  if(str.length[0] !== str[str.length -1]){
-    return false
-  }
-  var cut = string.length -1;
-  string.slice(cut);
-  return palindrome(string.slice(1));
+ 
+ if(keeper === ''){
+  keeper = string.toLowerCase();
+  keeper = keeper.replace(" ", "");
+ }
+
+  //back = string.toLowerCase();
+  //back = back.replace(" ", "");
+  //back = back[back.length -1];
+  back += string[string.length-1]
+
+
+ 
+ 
+  return palindrome(string.slice(0, -1), keeper, back);
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
