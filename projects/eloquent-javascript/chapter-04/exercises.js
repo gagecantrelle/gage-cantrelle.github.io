@@ -56,13 +56,15 @@ return arr;
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArrayInPlace(array) {
-  for (let i = 0; i < Math.floor(array.length / 2); i++) {
-    let old = array[i];
-    array[i] = array[array.length - 1 - i];
-    array[array.length - 1 - i] = old;
+  var arr = [];
+  for(var i = array.length -1; i >= 0; i--){
+    arr.push(array[i]);
   }
-  return array;
+  for(var y = 0; y < array.length; y++){
+    array[y] = arr[y];
+  }
 
+  return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -102,10 +104,14 @@ function prepend(value, list) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function nth(arr, num) {
-  if (!arr) return undefined;
-  else if (num == 0) return arr.value;
-  else return nth(arr.rest, num - 1);
+ if(arr === undefined){
+  return undefined;
+ }else if(arr < 0){
+  return undefined;
+ }
+ return arr.vlaue[num];
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
