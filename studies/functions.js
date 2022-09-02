@@ -69,16 +69,18 @@ console.log(a); // print 2
 //High-order functions
 //a function inside a function
 
-function test6(array){
+function test6(array, func){
+return func(array);
+
+}
 var t6 = function(arr){
     for(let i = 0; i < arr.length; i++){
        console.log(i); 
     }
 }
-}
 
 var t = [1, 2, ,3];
-test6(t);
+test6(t, t6);
 
 
 // function recursion
