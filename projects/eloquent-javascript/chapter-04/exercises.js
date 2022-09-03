@@ -104,13 +104,15 @@ function prepend(value, list) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function nth(arr, num) {
- if(arr === undefined){
-  return undefined;
- }else if(arr < 0){
-  return undefined;
+  if(num === undefined){
+   return undefined;
+  }else if(num < 0){
+   return undefined;
+  }
+ var arraylist = listToArray(arr);
+ return arraylist[num];
+ 
  }
- return arr.vlaue[num];
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////

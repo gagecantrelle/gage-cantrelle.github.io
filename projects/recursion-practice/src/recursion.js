@@ -330,7 +330,7 @@ var capitalizeFirst = function(array, output=[]) {
     return output;
   }
   output.push(array[0].charAt(0).toUpperCase());
-  return capitalizeWords(array.slice(1), output);
+  return capitalizeFirst(array.slice(1), output);
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
