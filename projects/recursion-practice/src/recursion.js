@@ -389,7 +389,8 @@ var compress = function(list, nlist=[]) {
   }
   if(nlist.indexOf(list[0]) === -1){
     nlist.push(list[0]);
-  }else if(nlist.length -1 === list[0]){
+  }
+  if(nlist[nlist.length -1] !== list[0]){
     nlist.push(list[0]);
   } 
   console.log(nlist);
@@ -407,12 +408,13 @@ var augmentElements = function(array, aug) {
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
 var minimizeZeroes = function(array, arr=[]) {
   if(array.length === 0){
-   return arr;
+    return arr;
   }
-  if(arr[array[0]]){
-  }
-
-
+  if(arr[arr.length -1] !== array[0]){
+    arr.push(array[0]);
+  } 
+  
+  return minimizeZeroes(array.slice(1), arr);
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -446,7 +448,7 @@ var alternateSign = function(array, arr=[]) {
     }
   }
 
-  return alternateSign(array.slice(1), arr);
+  return alternateSign(array.slice(2), arr);
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
