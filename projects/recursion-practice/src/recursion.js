@@ -303,8 +303,9 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n, count=0) {
-if(n === 0){
-  return array = list[count];
+
+  if(n === 0){
+  return list[count];
 }
 var list = [0,1,1,2,3,5,8,13,21];
 count++;
@@ -329,7 +330,15 @@ var capitalizeFirst = function(array, output=[]) {
   if(array.length === 0){
     return output;
   }
-  output.push(array[0].charAt(0).toUpperCase());
+ var word = array[0];
+ var t = word.charAt(0).toUpperCase();
+word = word.split('');
+word = word.slice(1);  
+word.unshift(t);
+word = word.join('');  
+  output.push(word); 
+  console.log(word);
+  
   return capitalizeFirst(array.slice(1), output);
 };
 

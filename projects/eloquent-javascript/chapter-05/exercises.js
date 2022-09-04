@@ -26,16 +26,39 @@ function loop(start, stop, update, action) {
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every(arr, func) {
-var bol = false;
-  for(let i = 0; i < arr.length; i++){
-    if(func(arr[i])){
-      bol = true;
-    }else{
-      return false;
+function every(coll, func) {
+  if(!func){ // chech if func has a value
+    if(Array.isArray(coll)){ //check if coll is an array
+      for(let i = 0; i < coll.length; i++){ //loop through collection
+         if(!coll[i]){ // check if coll spefic value is not true
+             return false; // return false
+         }
+      }
+    }else{ // run if coll not an array
+      for(var key in coll){ //loop through collection
+         if(!coll[key]){ // check if coll spefic value is not true
+             return false // return false
+         }
+      }
     }
-  }
-return bol;
+ 
+ }else{ // run if fun has a value
+     if(Array.isArray(coll)){ //check if coll is an array
+         for(let i = 0; i < coll.length; i++){ // loop through coll
+            if(!func(coll[i], i, coll)){ // check if coll spefic value is not true
+                return false; //return false
+            }
+         }
+       }else{ // run if coll is not array
+         for(var key in coll){ // loop through coll
+            if(!func(coll[key], key, coll)){ // check if coll spefic value is not true
+                return false; //return false
+            }
+         }
+       }
+ }
+ return true; // return true
+ 
 }
 
 // /////////////////////////////////////////////////////////////////////////////
