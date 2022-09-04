@@ -260,7 +260,7 @@ return countOccurrence(array.slice(1), value, count);
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback, arr=[]) {
-  if(array === 0){
+  if(array.length === 0){
 return arr;
   }
   arr.push(callback(array[0]));
@@ -302,15 +302,18 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n, count=0) {
-
+var nthFibo = function(n, count=0, list = [0,1,1,2,3,5,8,13,21,1,1,1,144]) {
   if(n === 0){
   return list[count];
+}else if(n < 0){
+  return null;
 }
-var list = [0,1,1,2,3,5,8,13,21];
+
+
+
 count++;
 
-return nthFibo(n -1,count);
+return nthFibo(n -1,count, list);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
@@ -362,7 +365,7 @@ var flatten = function(arrays) {
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
 var letterTally = function(str, obj={}) {
-  if(str === 0){
+  if(str.length === 0){
   return obj;  
   }
   if(obj[str[0]]){
@@ -381,8 +384,7 @@ console.log(obj);
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
 var compress = function(list, nlist=[]) {
-  if(list.length === 0){
-  
+  if(nlist.includes(1)){
     return nilist;
   }
   if(list.indexOf(list[0]) === -1){
