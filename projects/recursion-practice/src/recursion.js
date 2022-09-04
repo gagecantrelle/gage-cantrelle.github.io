@@ -384,12 +384,14 @@ console.log(obj);
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
 var compress = function(list, nlist=[]) {
-  if(nlist.includes(1)){
-    return nilist;
+  if(list.length === 0){
+    return nlist;
   }
-  if(list.indexOf(list[0]) === -1){
-nlist.push(list[0]);
-  }
+  if(nlist.indexOf(list[0]) === -1){
+    nlist.push(list[0]);
+  }else if(nlist.length -1 === list[0]){
+    nlist.push(list[0]);
+  } 
   console.log(nlist);
   return compress(list.slice(1), nlist);
 };
