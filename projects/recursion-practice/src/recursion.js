@@ -169,10 +169,16 @@ if(y > 0){
     return x;
   }
   return x + multiply(x, y -1);  
-}
-
-if(x < 0 && y < 0){ 
-  return 138050;
+}else if(x < 0 && y < 0){ 
+    if(y === -1){
+      return -x;
+    }
+    return -x + multiply(x, y + 1);  
+}else if(y < 0){
+  if(y === 1){
+    return x;
+  }
+  return x + multiply(x, y +1);
 }
 
 };
