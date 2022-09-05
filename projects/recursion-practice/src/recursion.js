@@ -458,12 +458,38 @@ var numToText = function(str, nstr = '') {
 if(str.length === 0){
   return nstr;
 }
-if(str[0] === Number){
-  nstr.push(str.toWordsOrdinal(str[0]))
+if(str[0] === '1'){
+  nstr = nstr + 'one';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '2'){
+  nstr = nstr + 'two';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '3'){
+  nstr = nstr + 'three';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '4'){
+  nstr = nstr + 'four';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '5'){
+  nstr = nstr + 'five';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '6'){
+  nstr = nstr + 'six';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '7'){
+  nstr = nstr + 'seven';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '8'){
+  nstr = nstr + 'eigth';
+return numToText(str.slice(1), nstr);
+}else if(str[0] === '9'){
+  nstr = nstr + 'nine';
+return numToText(str.slice(1), nstr);
 }
+
+
+
 nstr = nstr + str[0];
-
-
 return numToText(str.slice(1), nstr);
 };
 
