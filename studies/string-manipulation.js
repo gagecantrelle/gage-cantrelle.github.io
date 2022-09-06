@@ -6,26 +6,6 @@
  * 
  */
 
-//Operators
-var userName = 'gage';
-if(userName == 'gage'){
-    console.log(true) 
-}else{
-    contsole.log(false); 
-}
-//this code will check if the username is equal to 'gage'. if the username is true it will print true and print false if false.
-
-var obj = {
-    Username: 'Gage',
-    password: '1234'
-}
-if(obj.Username === 'Gage' && password === '1234'){
-    console.log(true) 
-}else{
-    contsole.log(false); 
-}
-//this is a complex code that will check if the username is equal to 'Gage' and the password is '1234. if the username is true 
-//it will print true and print false if false.   
 
 //Methods
 //ways to edit and change strins

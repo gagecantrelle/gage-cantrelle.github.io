@@ -33,8 +33,8 @@ console.log(test2); // prints 2
 var test3 = 'hi there';
 console.log(test3); // prints hi there
 
-//2. If a varable is called befor it's declared it will give a error saying that varable is not defined
-console.log(test3); // give error test3 is not defined
+//2. If a varable is called befor it's declared it will give set the value to undefind
+console.log(test3); // print undefind
 var test3 = 'hi there';
 
 //3. It also the same for function
@@ -48,7 +48,7 @@ calltest(1)
 function calltest(value){
     console.log(value);
 }
-//give error calltest is not defined
+//prints undefined
 
 //variable types
 //1. Var is a basic variable types that can hold any value, change it value/value type, and can be use anywhere in your code. The scope of a varaible is
@@ -59,7 +59,9 @@ function calltest(value){
    * 
    * 1: Function scope, A varaible declared in a function can only be used in a function
    * 
-   * 2: Block-scope, A varaible declared in a pair of Curly brackes can only be used in any thing that contants a open and colosed Curly brackes
+   * 2: Block-scope, A varaible declared in a pair of Curly brackes can be used but if called it will give a value of undefind
+   * 
+   * 3: var is a gobal varaible, so it can be call any where at any time
    */
 
    //1
@@ -75,9 +77,9 @@ function calltest(value){
     var isfalse = false;
     console.log(isfalse); // print false
    }
-   console.log(isfalse); // give reference error isfalse is not defined
+   console.log(isfalse); // prints false   
 
-//2. let is a varaible that acts like a block scope. Meaning that it value can only be reassign in a the block/Curly brackes, but it can stil be reassign a value.
+//2. let is a varaible that acts like a block scope. Meaning that it value can be reassign in a the block/Curly brackes and be reassign a value by calling it.
   //1
   let test6 = 6;
   let test6 = 7;   
@@ -90,7 +92,7 @@ function calltest(value){
 
   //3
   let test8 = 8;
-  if(test8 = 8){
+  if(test8 === 8){
     let Test8 = 8;
     console.log(Test8); //print 8
   }

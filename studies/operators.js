@@ -154,3 +154,12 @@ console.log(typeof test8); // print not a number
 var test9 = -1; // - operaorter change a postive number to a negative number
 
 //Ternary operator
+// acts like a if statement
+function test10(t){
+    return (t ? 'yes' : 'no' );
+}
+console.log(test10(true)); // print yes
+console.log(test10(false)); // print no
+
+// after seting up what you would put in a if statement (if(t) or if(t === true)) by puting a ? that line of code will act like a if statement.
+// then by declaring 2 value with : in the middle ('yes' : 'no') you will set what the out come will be. if true return 'yes', if false return 'no'

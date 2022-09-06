@@ -41,6 +41,14 @@
   var istrue = true;
   var isfalse = false;
   // can hold values of true or false
+  var bol;
+  if(1 < 10){ //compare if 1 is less than 10
+  //if true
+  bol = true;
+  }else{
+  //if false
+  bol = false;
+  }
 
   //4
   var arr = [1, 'hey', false, {

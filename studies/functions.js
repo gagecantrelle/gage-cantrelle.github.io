@@ -12,7 +12,7 @@
  */
 
 //ceating the function
-//instead of puting var test1; you would put function test1(){}
+//you would put function test1(){} this would be called a function declaration and the test1() is called a function invocation or call.
 function test1(){
 
 }
@@ -28,6 +28,14 @@ var add = 1;
 console.log(test2(add)); // print 2
 //the parameters will takin in any value or varaible and copy it. it will then use that value in the function to run the
 //code. then if you need to retun a value you will put return output;
+
+//another way way to creat a function is by function expersion. var test = 2 + 2; is a expersion, 2 + 2 is a evaluate it value, and then assign it value (4);
+//so, a function expersion will look like this
+var t = function(value1, value2){
+    
+}
+//this is also know as a Anonymous function. a function with out a name. the t resperant the function it ont the function name
+
 
 //when useing a function any code in it can't be use outside the function. By given the function a parameters it will act like a
 //blank varaible in the function. To add a varaible or value in the function, you will need to call the function and put a varaible/value
@@ -49,9 +57,9 @@ function test4(){
 }
 console.log(test4()); //print 6
 
-// The function scope can't edit other varaible outside the function. we can creat a varaible in side the function that will hold 
-// a edited value of an gobal varaible. we then can return the varaible created inside the function as a value. Then set the gobal varaible 
-// that was given to the function as the return value
+// The function scope can edit other varaible outside the function by accessing/ressign variables from a paraent scope. we can also creat a 
+//varaible in side the function that will hold a edited value of an gobal varaible. we then can return the varaible created inside the 
+//function as a value. Then set the gobal varaible that was given to the function as the return value
 
 var a = 1;
 function test5(input){
@@ -62,52 +70,70 @@ console.log(a); // print 1
 a = test5(a);
 console.log(a); // print 2
 
+// or
+
+var b = 1;
+function test6(input){
+  input += 1;
+}
+console.log(a); // print 1
+a = test6(a);
+console.log(a); // print 2
+
 //function Closures
 //Functions form closure around the code the hold ( {} ). when a function return a value and is stored some where the code in the
 //function will sill exist
+function t(){
+
+}// closure
 
 //High-order functions
 //a function inside a function
+//it can take in a function as a argument that can run it stef. if a functio in a function returns a value that value will return in side of the function.
+//it can also call it self in side of it own function to create a loop. also, it know a recursion
 
-function test6(array, func){
+function test7(array, func){
 return func(array);
 
 }
-var t6 = function(arr){
+var t7 = function(arr){
     for(let i = 0; i < arr.length; i++){
        console.log(i); 
     }
 }
 
 var t = [1, 2, ,3];
-test6(t, t6);
+test7(t, t7);
 
 
 // function recursion
 // a loop made with a function
-function test7(n, count=0){
+//by calling it self in side of it self it creates a loop. it has 2 proertise a base case and a recursion case.
+//the base case is were you put your stoping condition at. by saying if(n.length === 0){ return 0}. to stop the loop you need to reutn something else
+//the recursion case is where you call the function in it self. by saying return test8(n.slice(1), count)
+function test8(n, count=0){
     if(n.length === 0){
         return count;    // return how many items in array
     }
 count++;
-return test7(n.slice(1), count);  // will loop
+return test8(n.slice(1), count);  // will loop
 }
 var t7 = ['a', 'b', 'c' ];
-console.log(test7(t7)); // prints 3
+console.log(test8(t8)); // prints 3
 
 //by return the same function in it self we created a loop. to stop this loop we created an if statement to check if n length is equal to
 //zero. then when we return the function we take of a value in the array. when n length is zero we return the varibale count that was created
 //in the paramters. by make count in the praramters it dosen't get reset. but if we return the function we have to put count in the function too.
 
-function test7(n){
+function test8(n){
     if(n.length === 0){
         return count;    // return how many items in array
     }
 var count = 0;  
 count++;
-return test7(n.slice(1), count);  // will loop
+return test8(n.slice(1), count);  // will loop
 }
-var t7 = ['a', 'b', 'c' ];
-console.log(test7(t7)); // prints 1
+var t8 = ['a', 'b', 'c' ];
+console.log(test8(t8)); // prints 1
 
 // by declaring count in the function loop count will all way be reset to zero
