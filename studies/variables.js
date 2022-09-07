@@ -29,15 +29,17 @@ console.log(test2); // prints 2
 
 
 //Hosting
-//1. Hosting is the proceus of going through all declarated varabiles, function/golobal-block from top to bottom
+//1. Hosting is the proceus of going through all declarated varabiles names declared with var and function declaration are hoisted from top of their scope.
+//it will start from top to bottom.
 var test3 = 'hi there';
 console.log(test3); // prints hi there
 
-//2. If a varable is called befor it's declared it will give set the value to undefind
+//2. If a varable is called befor it's declared it will give set the value to undefind due to test3 being hosted frist befor test3 is given an a value
 console.log(test3); // print undefind
 var test3 = 'hi there';
 
-//3. It also the same for function
+//3. It also dosen't work the same for function
+//when hoisting a function it will be hoisted to the top of the scope. so, if you call a function befor it's made it will still work properly
 function calltest(value){
     console.log(value);
 }
@@ -48,7 +50,7 @@ calltest(1)
 function calltest(value){
     console.log(value);
 }
-//prints undefined
+//prints 1
 
 //variable types
 //1. Var is a basic variable types that can hold any value, change it value/value type, and can be use anywhere in your code. The scope of a varaible is
@@ -61,7 +63,7 @@ function calltest(value){
    * 
    * 2: Block-scope, A varaible declared in a pair of Curly brackes can be used but if called it will give a value of undefind
    * 
-   * 3: var is a gobal varaible, so it can be call any where at any time
+   * 3: var is a gobal varaible or function scope depending on where it declared in the code, so it can be call any where at any time
    */
 
    //1

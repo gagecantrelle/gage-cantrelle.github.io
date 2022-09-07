@@ -62,23 +62,11 @@ console.log(test4()); //print 6
 //function as a value. Then set the gobal varaible that was given to the function as the return value
 
 var a = 1;
-function test5(input){
-  var output = input + 1;
-    return output;
+function test5(){
+  a += 1;
 }
-console.log(a); // print 1
-a = test5(a);
 console.log(a); // print 2
 
-// or
-
-var b = 1;
-function test6(input){
-  input += 1;
-}
-console.log(a); // print 1
-a = test6(a);
-console.log(a); // print 2
 
 //function Closures
 //Functions form closure around the code the hold ( {} ). when a function return a value and is stored some where the code in the
@@ -92,18 +80,18 @@ function t(){
 //it can take in a function as a argument that can run it stef. if a functio in a function returns a value that value will return in side of the function.
 //it can also call it self in side of it own function to create a loop. also, it know a recursion
 
-function test7(array, func){
+function test6(array, func){
 return func(array);
 
 }
-var t7 = function(arr){
+var t6 = function(arr){
     for(let i = 0; i < arr.length; i++){
        console.log(i); 
     }
 }
 
 var t = [1, 2, ,3];
-test7(t, t7);
+test6(t, t6);
 
 
 // function recursion
@@ -111,29 +99,29 @@ test7(t, t7);
 //by calling it self in side of it self it creates a loop. it has 2 proertise a base case and a recursion case.
 //the base case is were you put your stoping condition at. by saying if(n.length === 0){ return 0}. to stop the loop you need to reutn something else
 //the recursion case is where you call the function in it self. by saying return test8(n.slice(1), count)
-function test8(n, count=0){
+function test7(n, count=0){
     if(n.length === 0){
         return count;    // return how many items in array
     }
 count++;
-return test8(n.slice(1), count);  // will loop
+return test7(n.slice(1), count);  // will loop
 }
 var t7 = ['a', 'b', 'c' ];
-console.log(test8(t8)); // prints 3
+console.log(test8(t7)); // prints 3
 
 //by return the same function in it self we created a loop. to stop this loop we created an if statement to check if n length is equal to
 //zero. then when we return the function we take of a value in the array. when n length is zero we return the varibale count that was created
 //in the paramters. by make count in the praramters it dosen't get reset. but if we return the function we have to put count in the function too.
 
-function test8(n){
+function test7(n){
     if(n.length === 0){
         return count;    // return how many items in array
     }
 var count = 0;  
 count++;
-return test8(n.slice(1), count);  // will loop
+return test7(n.slice(1), count);  // will loop
 }
-var t8 = ['a', 'b', 'c' ];
-console.log(test8(t8)); // prints 1
+var t7 = ['a', 'b', 'c' ];
+console.log(test8(t7)); // prints 1
 
 // by declaring count in the function loop count will all way be reset to zero
